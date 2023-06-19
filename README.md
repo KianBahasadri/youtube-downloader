@@ -3,8 +3,8 @@ python script that download youtube videos for you
 
 
 ## Function
--- the script will ask for a link using basic input() function
--- the video will then be downloaded in the same directory as the program
+1. script asks for a link using basic input() function
+2. the video is downloaded in the same directory as the script
 
 ## Schedule
 
