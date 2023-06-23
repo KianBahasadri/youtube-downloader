@@ -1,10 +1,13 @@
 from pytube import YouTube
 
-url = "https://www.youtube.com/watch?v=3QhAm5aFEt8"
-vid = YouTube(url)
+vid = input("Enter YouTube URL: ")
 
-# these three lines below all give me errors idk why
-print(vid.title) # output vid name
+# yt = YouTube(vid).streams.first()
+yt = YouTube(vid) # the above line gives error for some reason
 
-# vid = vid.streams.get_highest_resolution()
-# vid.download()
+video_title = yt.title
+
+request = input('Download (y/n): "' + video_title + '?"\n')
+
+if (request == "y"):
+    yt.download()
