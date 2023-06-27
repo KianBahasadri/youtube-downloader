@@ -1,5 +1,4 @@
-from pytube import YouTube
-from pytube import Playlist
+from pytube import YouTube, Playlist
 import os
 
 destination = "/Users/aradm/Downloads" # only works for me

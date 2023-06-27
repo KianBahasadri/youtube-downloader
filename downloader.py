@@ -1,15 +1,22 @@
-from pytube import YouTube
+from pytube import YouTube, Playlist
 
-vid = input("Enter YouTube URL: ")
+URL = input("Enter YouTube URL: ")
 
-# yt = YouTube(vid).streams.first()
-yt = YouTube(vid) # the above line gives error for some reason
+if list in URL:
+    pass
 
-video_title = yt.title
+    playlist = Playlist(URL)
 
-request = input('Download (y/n): "' + video_title + '?"\n')
+else:
 
-if (request == "y"):
-    yt.download()
+    # yt = YouTube(vid).streams.first()
+    vid = YouTube(URL) # the above line gives error for some reason
 
-# git push update test
+    video_title = vid.title
+
+    request = input('Download (y/n): "' + video_title + '?"\n')
+
+    if (request == "y"):
+        vid.download()
+
+    # git push update test
