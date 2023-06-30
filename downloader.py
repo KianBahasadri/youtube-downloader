@@ -7,6 +7,10 @@ if list in URL:
 
     playlist = Playlist(URL)
 
+    for video in playlist.videos:
+        video.streams.get_highest_resolution().download()
+
+
 else:
 
     # yt = YouTube(vid).streams.first()
@@ -17,6 +21,6 @@ else:
     request = input('Download (y/n): "' + video_title + '?"\n')
 
     if (request == "y"):
-        vid.download()
+        vid.download("/Users/justinli/Downloads")
 
     # git push update test
