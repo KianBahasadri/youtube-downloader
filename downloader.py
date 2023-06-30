@@ -2,25 +2,32 @@ from pytube import YouTube, Playlist
 
 URL = input("Enter YouTube URL: ")
 
-if list in URL:
+if "list" in URL:
     pass
 
     playlist = Playlist(URL)
 
+    i = 1
+
     for video in playlist.videos:
         video.streams.get_highest_resolution().download()
 
+        print("Video Downloaded (" + i + "): " + video.title)
+
+    print("All videos in playlist successfully downloaded")
 
 else:
 
-    # yt = YouTube(vid).streams.first()
-    vid = YouTube(URL) # the above line gives error for some reason
+    # yt = YouTube(URL).streams.first() # selects first result
+    yt = YouTube(URL)
 
-    video_title = vid.title
+    # stream = yt.streams.first()
+
+    video_title = yt.title
 
     request = input('Download (y/n): "' + video_title + '?"\n')
 
     if (request == "y"):
-        vid.download("/Users/justinli/Downloads")
+        yt.streams.first().download()
 
-    # git push update test
+        print("Video successfully downloaded")
