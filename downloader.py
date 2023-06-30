@@ -1,22 +1,22 @@
 from pytube import YouTube, Playlist
 
-URL = input("Enter YouTube URL: ")
+type = input("video or playlist (v/p): ")
+URL = input("Enter URL: ")
 
-if "list" in URL:
-    pass
+if (type == "p" or type == "playlist"):
 
     playlist = Playlist(URL)
 
     i = 1
 
     for video in playlist.videos:
-        video.streams.get_highest_resolution().download()
+        video.streams.get_highest_resolution().download("/Users/justinli/Documents/GitHub/youtube-downloader/downloaded")
 
         print("Video Downloaded (" + i + "): " + video.title)
 
     print("All videos in playlist successfully downloaded")
 
-else:
+elif (type == "v" or type == "video"):
 
     # yt = YouTube(URL).streams.first() # selects first result
     yt = YouTube(URL)
@@ -28,6 +28,6 @@ else:
     request = input('Download (y/n): "' + video_title + '?"\n')
 
     if (request == "y"):
-        yt.streams.first().download()
+        yt.streams.first().download("/Users/justinli/Documents/GitHub/youtube-downloader/downloaded")
 
         print("Video successfully downloaded")
